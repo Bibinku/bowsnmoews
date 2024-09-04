@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">PET FOOD DETAILS</h4>
+                    <p class="card-description">Food details</p>
+                    <form class="forms-sample" method="post" action="{% url 'updatefood' Fid=data.id %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+
+                        <div class="form-group">
+                        <label>Food Name</label>
+                        <input type="text" class="form-control" id="exampleInputEml3" placeholder="Name" name="fname" value="{{data.fname}}">
+                      </div>
+
+
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="fdescription" >{{data.fdescription}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rate</label>
+                        <input type="number" class="form-control" id="exampeInputEml3" placeholder="Rate" name="frate" value="{{data.frate}}">
+                    </div>
+
+
+
+
+
+                      <div class="form-group">
+                        <label>Update  images</label>
+                        <input type="file" name="fimage" class="file-upload-default" placeholder="Food Image">
+                        <div class="input-group col-xs-12">
+                           </div>
+                     <div class="form-group">
+
+                      <input type="file" class="form-control" placeholder=" Image" name="fimage" value="{{data.fimage}}">
+                    </div>
+                        </div>
+
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Update </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}

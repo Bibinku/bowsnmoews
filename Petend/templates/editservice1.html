@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Service Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">EDIT SERVICE  DETAILS</h4>
+                    <p class="card-description"> Service details</p>
+                    <form class="forms-sample" method="post" action="{% url 'updateservice1' S1id=data.id %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+
+                         <div class="form-group">
+                      <label for="exampleSelectGender">Select Services</label>
+                        <select class="form-control" id="exampleSelectGender" name="service1"  value="{{data.service1}}">
+                          <option>Select</option>
+                            {% for d in ser %}
+                          <option>{{d.services}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                     <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="sdescription1" >{{data.sdescription1}}</textarea>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label>Feature1</label>
+                        <input type="text" class="form-control" id="exampleIputE" placeholder="Features" name="feature1" value="{{data.feature1}}" >
+                      </div>
+                    <div class="form-group">
+                        <label>Feature2</label>
+                        <input type="text" class="form-control" id="exampleIptE3" placeholder="Features" name="feature2"  value="{{data.feature2}}" >
+                      </div>
+                    <div class="form-group">
+                        <label>Feature3</label>
+                        <input type="text" class="form-control" id="exmpleIputE3" placeholder="Features" name="feature3"  value="{{data.feature3}}" >
+                      </div>
+                    <div class="form-group">
+                        <label>Feature4</label>
+                        <input type="text" class="form-control" id="empleIputE3" placeholder="Features" name="feature4"  value="{{data.feature4}}" >
+                      </div>
+
+                    <div class="form-group">
+                        <label>Rate</label>
+                        <input type="number" class="form-control" id="exampeInputEml3" placeholder="Price" name="sprice" value="{{data.sprice}}">
+                    </div>
+
+
+
+
+
+
+                      <div class="form-group">
+                        <label>Update  images</label>
+                        <input type="file" name="simage" class="file-upload-default" placeholder="Image">
+                        <div class="input-group col-xs-12">
+                           </div>
+                     <div class="form-group">
+
+                      <input type="file" class="form-control" placeholder=" Image" name="simage" value="{{data.simage}}">
+                    </div>
+                        </div>
+
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Update </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}

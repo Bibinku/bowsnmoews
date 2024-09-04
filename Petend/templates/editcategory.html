@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CATEGORY DETAILS</h4>
+                    <p class="card-description">Category details</p>
+                    <form class="forms-sample" method="post" action="{% url 'updatecategory' Cid=data.id %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+
+                        <div class="form-group">
+                        <label>Category Name</label>
+                        <input type="text" class="form-control" id="exampleInputEml3" placeholder="Name" name="cname" value="{{data.cname}}">
+                      </div>
+
+
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="cdescription" >{{data.cdescription}}</textarea>
+                    </div>
+
+
+
+                      <div class="form-group">
+                        <label>Upload  images</label>
+                        <input type="file" name="cimage" class="file-upload-default" placeholder="Category Image">
+                        <div class="input-group col-xs-12">
+                           </div>
+                     <div class="form-group">
+
+                      <input type="file" class="form-control" placeholder=" Image" name="cimage" value="{{data.cimage}}">
+                    </div>
+                        </div>
+
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Update </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}

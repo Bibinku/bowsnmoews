@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CATEGORY DETAILS</h4>
+                    <p class="card-description">Category details</p>
+                    <form class="forms-sample" method="post" action="{% url 'updateservice' Sid=data.id %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+
+                        <div class="form-group">
+                        <label>Services</label>
+                        <input type="text" class="form-control" id="exampleInputEml3" placeholder="Name" name="services" value="{{data.services}}">
+                      </div>
+
+
+                     <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="sdescription" >{{data.sdescription}}</textarea>
+                    </div>
+
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Update </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Pet Sitting - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'pet/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'pet/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pet/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pet/css/magnific-popup.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'pet/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'pet/css/jquery.timepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'pet/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'pet/css/style.css' %}">
+
+
+      	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			color: #333;
+			margin-bottom: 20px;
+		}
+		.notifications ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.notifications li {
+			background-color: #eee;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+		}
+		.feedback form {
+			margin-top: 20px;
+		}
+		.feedback label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		.feedback input[type="text"], .feedback textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+	</style>
+
+
+  </head>
+  <body>
+
+     <div class="wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 d-flex align-items-center">
+						<p class="mb-0 phone pl-md-2">
+							<a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>8078164113</a>
+							<a href="#"><span class="fa fa-paper-plane mr-1"></span>bibinku01@gmail.com</a>
+						</p>
+					</div>
+					<div class="col-md-6 d-flex justify-content-md-end">
+						<div class="social-media">
+			    		<p class="mb-0 d-flex">
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+			    		</p>
+		        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="index.html"><span  style="margin-right: -60px"></span >   Bows N Meow      </a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto" >
+	        	<li class="nav-item active"><a href="{% url 'homepage' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{% url 'aboutpage' %}" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="{% url 'accessoriespage' %}" class="nav-link">Accessories</a></li>
+				<li class="nav-item"><a href="{% url 'foodpage' %}" class="nav-link">Foods</a ></li>
+	        	<li class="nav-item"><a href="{% url 'servicepage' %}" class="nav-link">Services</a></li>
+
+
+
+
+
+	          <li class="nav-item"><a href="{% url 'breadpage' %}" class="nav-link">PetHub</a></li>
+	          <li class="nav-item"><a href="{% url 'contactpage' %}" class="nav-link">Contact</a></li>
+
+	          <li class="nav-item"><a href="{% url 'cartdetails' %}" class="nav-link">Cart</a></li>
+	          <li class="nav-item"><a href="{% url 'feedbacknotification' %}" class="nav-link">Accounts</a></li>
+
+				 {% if request.session.USERNAME%}
+
+	        	<li class="nav-item"><a href="{% url 'userlogout' %}" class="nav-link">{{request.session.USERNAME}}/Logout</a></li>
+				{% else %}
+				<li class="nav-item"><a href="{% url 'signinpage' %}" class="nav-link">Login</a></li>
+				{% endif %}
+
+
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    <section class="hero-wrap js"  style= " height:600px; background-image: url('{% static 'pet/images/feed.jpg' %}');  "  data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs mb-2" style="padding-top: 300px; font-size:large;"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Account <i class="ion-ios-arrow-forward" style="font-weight: 600; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; "></i></span></p>
+            <h1 class="mb-0 bread" style="font-size: 50px;" >Account Details</h1>
+          </div>
+        </div>
+      </div>
+    </section><br><br>
+
+    <section>
+        	<div  class="container">
+
+
+		<h1 id="myHeading" value=" Hey!.    {{request.session.USERNAME}}"></h1><br><br>
+
+
+
+
+        <h2>My Bookings</h2><br>
+
+		<div  style="font-size: 20px; font-family: Arial, Helvetica, sans-serif;" class="notifications">
+
+            {% for i in booking %}
+
+            <p> ✅︎  Your booking for {{i.Bservices}} on {{i.Bdate}} at {{i.Btime}} is confirmed, See you soon! We are excited to provide you with a great experience,Thanks for choosing us  </p>
+            <button class=" btn-primary"><a href="{% url 'booking_pdf' booking_id=i.id%}" style="color:white">Download as Pdf</a> </button>
+            {% endfor %}<br><br>
+
+
+
+        <h2>My Orders</h2>
+
+            {% for i in order %}
+
+            <p> ✅︎ Your order is confirmed! You have purchased {{i.Quantity}} units of {{i.Productname}} at total amount is {{i.Price}}. Thank you for your purchase! We will keep you updated on the shipping status of your order.</p>
+
+            {% endfor %}
+
+
+
+		</div><br><br><br><br><br><br>
+		<h1>Feedback</h1><br>
+		<div class="feedback">
+            <form action="{% url 'savefeedback' %}" method="post">
+                {% csrf_token %}
+
+                   <label  for="name">Name:</label>
+				<input type="text" id="name"  name="Fname" class="form-control">
+
+                <label  for="name">Mobile Number:</label>
+				<input type="number" id="number" name="Fphone" class="form-control">
+
+
+				<label  for="feedback">Feedback:</label>
+                <textarea name="Fmessage" id="feedback" cols="30" rows="8" class="form-control"></textarea><br><br>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" value="Submit" style="margin-left: 450px;width: 200px;" class="btn btn-primary">
+                        <div class="submitting"></div><br><br>
+                    </div>
+                </div>
+
+
+
+			</form>
+		</div>
+	</div>
+    </section>
+
+
+    <footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Bows N Meow</h2>
+						<p>Cozy pet shop offering a wide range of dog accessories, toys, and nutritious food for puppies and adult dogs nearby</p>
+						<ul class="ftco-footer-social p-0">
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+					</div>
+
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Latest News</h2>
+						<div class="block-21 mb-4 d-flex">
+              <a class="img mr-4 rounded" style="background-image: url('{% static 'pet/images/image_1.jpg' %}');"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="block-21 mb-4 d-flex">
+              <a class="img mr-4 rounded" style="background-image: url('{% static 'pet/images/image_2.jpg' %}');"></a>
+              <div class="text">
+                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                <div class="meta">
+                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
+                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                </div>
+              </div>
+            </div>
+					</div>
+                       <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+	                  <h2 class="footer-heading">Quick Links</h2>
+	                      <ul class="list-unstyled">
+                             <li><a href="{% url 'homepage' %}" class="py-2 d-block">Home</a></li>
+                             <li><a href="{% url 'aboutpage' %}" class="py-2 d-block">About</a></li>
+                             <li><a href="{% url 'accessoriespage' %}" class="py-2 d-block">Accessories</a></li>
+                             <li><a href="{% url 'foodpage' %}" class="py-2 d-block">Foods</a></li>
+                              <li><a href="{% url 'servicepage' %}" class="py-2 d-block">Services</a></li>
+                              <li><a href="{% url 'breadpage' %}" class="py-2 d-block">Pethub</a></li>
+
+                            <li><a href="{% url 'cartdetails' %}" class="py-2 d-block">Cart</a></li>
+                            <li><a href="{% url 'contactpage' %}" class="py-2 d-block">Contact</a></li>
+                           <li><a href="{% url 'feedbacknotification' %}" class="py-2 d-block">Accounts</a></li>
+                          </ul>
+                    </div>
+					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+						<h2 class="footer-heading">Have a Questions?</h2>
+						<div class="block-23 mb-3">
+              <ul>
+                <li><span class="icon fa fa-map"></span><span class="text">Bows N Meow, Mannorammakavala, Cherthala , Alappuzha , Kerala </span></li>
+                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+91 8078164113 </span></a></li>
+                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">bowsnmeow@gmail.com</span></a></li>
+              </ul>
+            </div>
+					</div>
+				</div>
+<!--				<div class="row mt-5">-->
+<!--          <div class="col-md-12 text-center">-->
+
+<!--            <p class="copyright">&lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;-->
+<!--  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>-->
+<!--  &lt;!&ndash; Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. &ndash;&gt;</p>-->
+<!--          </div>-->
+<!--        </div>-->
+			</div>
+		</footer>
+
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+ <script src="{% static 'pet/js/jquery.min.js' %}"></script>
+  <script src="{% static 'pet/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'pet/js/popper.min.js' %}"></script>
+  <script src="{% static 'pet/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'pet/js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'pet/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'pet/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'pet/js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'pet/js/google-map.js' %}"></script>
+  <script src="{% static 'pet/js/main.js' %}"></script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   {% if messages %}
+     {% for i in messages %}
+         {% if i.tags == 'warning'%}
+              <script>
+                  swal('{{i}}','','warning');
+              </script>
+         {% elif i.tags == 'error'%}
+              <script>
+                  swal('{{i}}','','error');
+              </script>
+         {% elif i.tags == 'info'%}
+              <script>
+                  swal('{{i}}','','info');
+              </script>
+         {% else %}
+               <script>
+                  swal('{{i}}','','success');
+              </script>
+         {% endif %}
+     {% endfor %}
+   {% endif %}
+
+
+
+
+
+
+
+
+
+<script>
+    const h1 = document.getElementById('myHeading');
+    h1.textContent = h1.getAttribute('value');
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1></h1>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">ADD NEW PRODUCT HERE</h4>
+                  <p class="card-description">
+                    Product Page
+                  </p>
+                  <form class="forms-sample"  method="post" action="{% url 'savebread' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                       <div class="form-group">
+                      <label for="exampleSelectGender">Select Category</label>
+                        <select class="form-control" id="exampleSelectGender" name="category">
+                          <option>Select</option>
+                            {% for d in cat %}
+                          <option>{{d.cname}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Bread Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Bread Name" name="bname">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Age</label>
+                      <input type="text" class="form-control" id="exampleInputNa" placeholder="Age" name="bage">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Gender</label>
+                      <input type="text" class="form-control" id="exampleInputN" placeholder="Gender" name="bgender">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                      <input type="number" class="form-control" id="exampleIutN" placeholder="Price" name="bprice">
+                    </div>
+
+                      <div class="form-group">
+                      <label for="exampleSelectGender">Vaccination</label>
+                        <select class="form-control" id="examSelectGender" name="bvaccination">
+                          <option>Select</option>
+
+                          <option>YES</option>
+                          <option>NO</option>
+
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                      <label for="exampleSelectGender">KCI Certified </label>
+                        <select class="form-control" id="examSelecender" name="bkci">
+                          <option>Select</option>
+
+                          <option>YES</option>
+                          <option>NO</option>
+
+                        </select>
+                      </div>
+
+
+
+                     <div class="form-group">
+                      <label for="exampleInputName1">Upload Bread Image</label>
+                      <input type="file" class="form-control" placeholder="Bread Image" name="bimage">
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="bdescription"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

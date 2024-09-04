@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h1></h1>
+<body>
+<div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">ADD BREAD DETAILS HERE</h4>
+                  <p class="card-description">
+                    Product Page
+                  </p>
+                  <form class="forms-sample"  method="post" action="{% url 'updatebread' Bid=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                       <div class="form-group">
+                      <label for="exampleSelectGender">Select Category</label>
+                        <select class="form-control" id="exampleSelectGender" name="category"  value="{{data.category}}">
+                          <option>Select</option>
+                            {% for d in cat %}
+                          <option>{{d.cname}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Bread Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Bread Name" name="bname" value="{{data.bname}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Age</label>
+                      <input type="text" class="form-control" id="exampleInputNa" placeholder="Age" name="bage"  value="{{data.bage}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Gender</label>
+                      <input type="text" class="form-control" id="exampleInputN" placeholder="Gender" name="bgender"  value="{{data.bgender}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                      <input type="number" class="form-control" id="exameInputN" placeholder="Price" name="bprice"  value="{{data.bprice}}">
+                    </div>
+                     <div class="form-group">
+                      <label for="exampleSelectGender">Vaccination</label>
+                        <select class="form-control" id="examplelectGender" name="bvaccination"  value="{{data.bvaccination}}">
+                          <option>Select</option>
+                            <option>YES</option>
+                            <option>NO</option>
+
+                        </select>
+                      </div>
+                     <div class="form-group">
+                      <label for="exampleSelectGender">KCI Certification</label>
+                        <select class="form-control" id="exampletGender" name="bkci"  value="{{data.bkci}}">
+                          <option>Select</option>
+                            <option>YES</option>
+                            <option>NO</option>
+
+                        </select>
+                      </div>
+                     <div class="form-group">
+                      <label for="exampleInputName1">Upload Bread Image</label>
+                      <input type="file" class="form-control" placeholder="Bread Image" name="bimage"  value="{{data.bimage}}">
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="bdescription">{{data.bdescription}}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title> Food Details</title>
+</head>
+<body>
+
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">PET ACCESSORIES DETAILS</h4>
+                    <p class="card-description">Accessories details</p>
+                    <form class="forms-sample" method="post" action="{% url 'saveaccessories' %}" enctype="multipart/form-data" >
+                      {% csrf_token %}
+
+
+                        <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="exampleInputEml3" placeholder="Name" name="aname" >
+                      </div>
+
+
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description" name="adescription"></textarea>
+                    </div>
+
+
+                     <div class="form-group">
+                        <label>Rate</label>
+                        <input type="text" class="form-control" id="exampleIputE3" placeholder="Rate" name="arate" >
+                      </div>
+
+
+
+                      <div class="form-group">
+                        <label>Upload  images</label>
+                        <input type="file" name="aimage" class="file-upload-default" placeholder=" Image">
+                        <div class="input-group col-xs-12">
+                           </div>
+                     <div class="form-group">
+
+                      <input type="file" class="form-control" placeholder=" Image" name="aimage">
+                    </div>
+                        </div>
+
+
+
+
+                      <button type="submit" class="btn btn-primary mr-2"> Submit </button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+</body>
+</html>
+{% endblock %}
